@@ -89,14 +89,14 @@ namespace LeafletMap
          lonTo = longitud final
          color = color de la linea
          */
-        public void newLine(string latFrom, string lonFrom, string latTo, string LonTo, string Color = "blue")
+        public void newLine(string latFrom, string lonFrom, string latTo, string lonTo, string color = "blue")
         {
-            if (string.IsNullOrEmpty(latFrom) || string.IsNullOrEmpty(lonFrom) || string.IsNullOrEmpty(latTo) || string.IsNullOrEmpty(LonTo))
+            if (string.IsNullOrEmpty(latFrom) || string.IsNullOrEmpty(lonFrom) || string.IsNullOrEmpty(latTo) || string.IsNullOrEmpty(lonTo))
             {
                 Console.Write("Verifique los campos lat lon");
                 return;
             }
-            webView.Eval(string.Format("newLine({0},{1},{2}),{3},{4}", "\""+latFrom+"\"", "\""+lonFrom+"\"", "\""+latTo+ "\"", "\""+LonTo+ "\"", "\""+Color+ "\""));
+            webView.Eval($@"newLine(""{latFrom}"",""{lonFrom}"",""{latTo}"",""{lonTo}"",""{color}"")");
         }
 
         /*
