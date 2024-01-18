@@ -73,9 +73,10 @@
 
         //crear linea
         function newLine(latFrom, lonFrom, latTo, lonTo, color) {
-            var From = new L.latlng(latFrom, lonFrom);
-            var To = new L.latlng(latTo, lonTo);
+            var From = [latFrom.toString(), lonFrom.toString()];
+            var To = [latTo.toString(), lonTo.toString()];
             var FromTo = [From, To];
+
             var Line = new L.polyline(FromTo, { color: color, weight: 3, opacity: 0.5, smoothFactor: 1, noClip: false });
             markerGroup.addLayer(Line);
         }
