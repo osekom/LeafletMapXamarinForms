@@ -68,21 +68,22 @@
         //crea un nuevo marcador
         function newMarker(lat, lon, texto) {
             var marker = L.marker([lat.toString(), lon.toString()]).bindPopup(texto);
-            markerGroup.addLayer(newMarker);
+            markerGroup.addLayer(marker);
         }
 
         //crear linea
-        function newLine(latFrom, lonFrom, latTo, lonTo) {
-            var From = new L.latlng(latFrom, lonFrom);
-            var To = new L.latlng(latTo, lonTo);
+        function newLine(latFrom, lonFrom, latTo, lonTo, color) {
+            var From = [latFrom.toString(), lonFrom.toString()];
+            var To = [latTo.toString(), lonTo.toString()];
             var FromTo = [From, To];
-            var Line = new L.polyline(FromTo, { color: color, weight: weight, opacity: opacity, smoothFactor: smoothFactor, noClip: noClip });
+
+            var Line = new L.polyline(FromTo, { color: color, weight: 3, opacity: 0.5, smoothFactor: 1, noClip: false });
             markerGroup.addLayer(Line);
         }
 
         //crear circulo
-        function newCircle(lat, lon, color = 'blue', fillColor = '#f03', fillOpacity = 0.5, radius = 500) {
-            var circle = L.circle([lat, lon], { color: color, fillColor: fillColor, fillOpacity: fillOpacity, radius: radius })
+        function newCircle(lat, lon, color, fillColor, fillOpacity, radius) {
+            var circle = L.circle([lat, lon], { color: color, fillColor: fillColor, fillOpacity: fillOpacity, radius: radius });
             markerGroup.addLayer(circle);
         }
 
